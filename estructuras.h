@@ -1,15 +1,19 @@
 #ifndef ESTRUCTURAS_H
 #define ESTRUCTURAS_H
 
+#define BAJO 0
+#define MEDIO 1
+#define ALTO 2
 
 typedef struct Ticket {
     int id;
-    char descrpcio[100];
+    char descripcion[100];
+    int prioridad; 
     struct Ticket *siguiente;
-}Ticket;
+} Ticket;
 
-typedef struct colaPrioridad{
+typedef struct colaPrioridad {
     Ticket *inicio;
-}colaPrioridad;
+} colaPrioridad;
 
 #endif /* ESTRUCTURAS_H */
