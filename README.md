@@ -1,1 +1,2 @@
-# tarea_1
+
+# para testear : ./test.sh

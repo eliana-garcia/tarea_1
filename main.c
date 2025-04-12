@@ -3,17 +3,18 @@
 #include <string.h>
 #include "colaprioridad.h"
 
-// Función para mostrar el menú de opciones
 void mostrarMenu() {
-    printf("Sistema de gestión de tickets\n");
+    printf("Sistema de Gestión de Tickets\n");
     printf("1. Registrar ticket\n");
     printf("2. Modificar prioridad de ticket\n");
     printf("3. Mostrar tickets pendientes\n");
     printf("4. Procesar siguiente ticket\n");
     printf("5. Buscar ticket por ID\n");
     printf("6. Salir\n");
+    printf("-------------------------------------------\n\n");
     printf("Seleccione una opción: ");
 }
+
 int main() {
     colaPrioridad *cola = crearColaPrioridad();
     int opcion;
@@ -21,7 +22,7 @@ int main() {
     do {
         mostrarMenu();
         scanf("%d", &opcion);
-        getchar();  
+        getchar();
 
         switch (opcion) {
             case 1: {
@@ -29,35 +30,31 @@ int main() {
                 char descripcion[1000];
                 printf("Ingrese el ID del ticket: ");
                 scanf("%d", &id);
-                getchar();  
-
+                getchar();
                 printf("Ingrese descripción del problema: ");
                 scanf("%[^\n]", descripcion);
                 registrarTicket(cola, id, descripcion);
                 break;
             }
             case 2: {
-                int id;
-                int prioridad;
+                int id, prioridad;
                 printf("Ingrese el ID del ticket a modificar: ");
                 scanf("%d", &id);
                 printf("Ingrese la nueva prioridad (0 = Bajo, 1 = Medio, 2 = Alto): ");
                 scanf("%d", &prioridad);
                 if (prioridad < 0 || prioridad > 2) {
-                    printf("Prioridad no válida.\n");
+                    printf("Prioridad no válida.\n-------------------------------------------\n\n");
                 } else {
                     modificarPrioridad(cola, id, prioridad);
                 }
                 break;
             }
-            case 3: {
+            case 3:
                 mostrarTickets(cola);
                 break;
-            }
-            case 4: {
+            case 4:
                 procesarSiguienteTicket(cola);
                 break;
-            }
             case 5: {
                 int id;
                 printf("Ingrese el ID del ticket: ");
@@ -65,15 +62,11 @@ int main() {
                 buscarTicketPorID(cola, id);
                 break;
             }
-            case 6: {
-                printf("Programa terminado\n");
+            case 6:
+                printf("\nPrograma terminado.\n");
                 break;
-            }
-            default: {
-                printf("La opcion ingresada no es valida\n");
-                printf("INTENTE NUEVAMENTE\n");
-                break;
-            }
+            default:
+                printf("\nOpción inválida. Intente nuevamente.\n-------------------------------------------\n\n");
         }
     } while (opcion != 6);
 
