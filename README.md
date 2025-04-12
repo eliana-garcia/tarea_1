@@ -24,7 +24,7 @@
 
 ---
 
-## EStructura 
+## Estructura 
 
 - main.c: Contine el menú principal y la lógica de interacción con el usuario.
 - colaprioridad.c: Implementación de la cola de prioridad.
@@ -34,7 +34,7 @@
 
 ---
 
-## Requisiros 
+## Requisitos 
 
 - Copilador de C.
 - Visual Studio Code
